@@ -4,21 +4,16 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-
-
-
 public class Main {
-
+    
     public static void main(String[] args) throws IOException {
 
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
         while (true) {
-           int count = game();
-
-
-            System.out.println("count = " + count);
-            System.out.println("continue y/n");
+            int count = game();
+            System.out.println("You guessed the number of " + count + " attempts");
+            System.out.println("Continue? y/n");
             String isContinue = reader.readLine();
             if (isContinue.equals("n")) {
                 break;
@@ -40,10 +35,10 @@ public class Main {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         int computerNumber = (int) (Math.random() * 50);
         int count = 0;
-        System.out.println("computer number " + computerNumber);
+        System.out.println("Number of computing system " + computerNumber);
         while (true) {
             int number = 0;
-            System.out.println("Input number");
+            System.out.println("Please input number");
             String numberString = reader.readLine();
             if ("q".equals(numberString)) {
                 break;
@@ -54,10 +49,14 @@ public class Main {
             }
 
             if (number != computerNumber) {
-                System.out.println("no");
+                if (number > computerNumber) {
+                    System.out.println("Your number is greater than the number of computing system");
+                } else {
+                    System.out.println("Your number is less than the number of computing system");
+                }
                 count++;
             } else {
-                System.out.println("yes");
+                System.out.println("Victory!");
                 break;
             }
         }
