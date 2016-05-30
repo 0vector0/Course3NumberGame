@@ -12,18 +12,7 @@ public class Main {
             int count = game(reader);
             System.out.println("You guessed the number in " + count + " attempts");
             String isContinue = inputAnswer(reader);
-            if (isContinue.equals("n")) {
-                break;
-            }
-        }
-    }
-
-    private static boolean isNumeric(String numberString) {
-        try {
-            Integer.parseInt(numberString);
-            return true;
-        } catch (Exception e) {
-            return false;
+            if (isContinue.equals("n")) break;
         }
     }
 
@@ -35,9 +24,7 @@ public class Main {
             int number = 0;
             System.out.println("Please input number");
             String numberString = reader.readLine();
-            if ("q".equals(numberString)) {
-                break;
-            }
+            if ("q".equals(numberString)) break;
             if (isNumeric(numberString)) {
                 number = Integer.parseInt(numberString);
             }
@@ -54,6 +41,15 @@ public class Main {
             }
         }
         return count;
+    }
+
+    private static boolean isNumeric(String numberString) {
+        try {
+            Integer.parseInt(numberString);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     private static String inputAnswer(BufferedReader reader) throws IOException {
